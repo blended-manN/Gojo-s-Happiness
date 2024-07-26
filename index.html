@@ -3,63 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="icon" type="image/x-icon" href="/Images/favicon.png" />
-    <link rel='stylesheet'href="Style Sheet.css" />
     <title>Unity WebGL Player | Shoot Colored Joshuas</title>
   </head>
   <body style="text-align: center">
-      <header>
-          <div class="topnav">
-              <a href="https://blended-mann.github.io">
-                  Home
-              </a>
-              <a href="https://blended-mann.github.io/games">
-                  Games
-              </a>
-              <a href="https://blended-mann.github.io">
-                  Posts
-              </a>
-              <a href="https://blended-mann.github.io">
-                  Media
-              </a>
-              <a href="https://blended-mann.github.io/requests">
-                  Requests
-              </a>
-              <a href="https://blended-mann.github.io/about">
-                  About
-              </a>
-          </div>
-      </header>
+    <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: url('Build/SCJ.jpg') center / cover"></canvas>
+    <script src="Build/SCJ.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
 
-      <div class="header">
-          <h1>Blended ManN Publishing</h1>
-      </div>
-
-      <h2 style="margin-inline: auto;">
-          Shoot Different Coloured Joshuas
-      </h2>
-      <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: url('Build/SCJ.jpg') center / cover"></canvas>
-      <script src="Build/SCJ.loader.js"></script>
-      <script>
-          if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-              // Mobile device style: fill the whole browser client area with the game canvas:
-              var meta = document.createElement('meta');
-              meta.name = 'viewport';
-              meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-              document.getElementsByTagName('head')[0].appendChild(meta);
-          }
-
-          createUnityInstance(document.querySelector("#unity-canvas"), {
-              dataUrl: "Build/SCJ.data",
-              frameworkUrl: "Build/SCJ.framework.js",
-              codeUrl: "Build/SCJ.wasm",
-              streamingAssetsUrl: "StreamingAssets",
-              companyName: "QQGames",
-              productName: "Shoot Colored Joshuas",
-              productVersion: "1.0",
-              // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-              // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-          });
-      </script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/SCJ.data",
+        frameworkUrl: "Build/SCJ.framework.js",
+        codeUrl: "Build/SCJ.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "QQGames",
+        productName: "Shoot Colored Joshuas",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
   </body>
 </html>
