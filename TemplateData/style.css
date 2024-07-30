@@ -30,7 +30,7 @@ body {
 .column {
     width: 75%;
     padding: 20px;
-    height: 500px;
+    height: fit-content;
     margin-inline: auto;
     background-color: antiquewhite;
     text-align: center;
